@@ -9,11 +9,13 @@ block content
             h2.text-center.display-3 Fiis Bank
         .row.h-50.justify-content-center
           .col-md-8.main-con.p-3.justify-content-center
+            if msg
+              p.text-danger #{msg}
             form.form-horizontal(method='POST', action='/login')
               .form-group.row.justify-content-center
                 .col-md-10.mb-5
                   .wrapper
-                    input#username.in(type='text', name='username', placeholder='Username')
+                    input#username.in(type='text', name='username', placeholder='Username', value=username)
                     span.underline
               .form-group.row
                 .col-md-10.offset-md-1.mb-5

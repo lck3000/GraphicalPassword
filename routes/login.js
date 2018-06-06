@@ -19,19 +19,22 @@ router.post('/', (req, res, next) => {
 		.then(user => {
 			if (!user) {
 				return res.render('login/step1', {
-					msg: 'Usuario no encontrado'
+					msg: 'Usuario no encontrado',
+					username: username
 				});
 			}
 
 			if (user.state != 'enabled') {
 				return res.render('login/step1', {
-					msg: 'Usuario no habilitado'
+					msg: 'Usuario no habilitado',
+					username: username
 				});
 			}
 
 			if (user.password != password) {
 				return res.render('login/step1', {
-					msg: 'Clave incorrecta'
+					msg: 'Clave incorrecta',
+					username: username
 				});
 			}
 

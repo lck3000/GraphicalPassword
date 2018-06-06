@@ -6,20 +6,21 @@ block content
       .container
         .row.justify-content-center
           .col-md-8.p-3.mt-5
-            h2.text-center.display-3 Sistema de Punto de Paso
+            h2.text-center.display-4 Pps
         .row.h-50.justify-content-center
-          input(type='file', id='picImage')
-          canvas(id='canvas', width=500, height=400)
           .col-md-8.main-con.p-3.justify-content-center
             .row.justify-content-center
-                .col-md-10.mb-5
+              input(type='file', id='picImage')
+            .row.justify-content-center
+              canvas(id='canvas', width=500, height=400)
+            .row.justify-content-center
+                .col-md-6.mb-5
                   .wrapper
                     button.btn.btn-primary.btn-block(id='btnClean') Limpiar
-            .row.justify-content-center
-                .col-md-10.mb-5
+                .col-md-6.mb-5
                   .wrapper
                     input(type='hidden', id='saveurl', value='/register/step2')
-                    button.btn.btn-primary.btn-block(id='btnSave') Guardar
+                    button.btn.btn-primary.btn-block(id='btnSave') Entrar
             p.text-center.t Victor Cueva
 
 block scripts
