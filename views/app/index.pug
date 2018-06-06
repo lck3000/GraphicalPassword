@@ -1,0 +1,523 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='keywords', content='')
+    meta(name='author', content='')
+    title
+      | Home ·
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600', rel='stylesheet', type='text/css')
+    link(href='assets/css/toolkit.css', rel='stylesheet')
+    link(href='assets/css/application.css', rel='stylesheet')
+    style.
+      /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+      /* this chunk of css is not part of the toolkit :) */
+      body {
+      width: 1px;
+      min-width: 100%;
+      *width: 100%;
+      }
+  body.with-top-navbar
+    #app-growl.growl
+    nav.navbar.navbar-inverse.navbar-fixed-top.app-navbar
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar-collapse-main')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='index.html')
+            img(src='assets/img/brand-white.png', alt='brand')
+        #navbar-collapse-main.navbar-collapse.collapse
+          ul.nav.navbar-nav.hidden-xs
+            li.active
+              a(href='index.html') Home
+            li
+              a(href='profile/index.html') Profile
+            li
+              a(data-toggle='modal', href='#msgModal') Messages
+            li
+              a(href='docs/index.html') Docs
+          ul.nav.navbar-nav.navbar-right.m-r-0.hidden-xs
+            li
+              a.app-notifications(href='notifications/index.html')
+                span.icon.icon-bell
+            li
+              button.btn.btn-default.navbar-btn.navbar-btn-avitar(data-toggle='popover')
+                img.img-circle(src='assets/img/avatar-dhg.png')
+          form.navbar-form.navbar-right.app-search(role='search')
+            .form-group
+              input.form-control(type='text', data-action='grow', placeholder='Search')
+          ul.nav.navbar-nav.hidden-sm.hidden-md.hidden-lg
+            li
+              a(href='index.html') Home
+            li
+              a(href='profile/index.html') Profile
+            li
+              a(href='notifications/index.html') Notifications
+            li
+              a(data-toggle='modal', href='#msgModal') Messages
+            li
+              a(href='docs/index.html') Docs
+            li
+              a(href='#', data-action='growl') Growl
+            li
+              a(href='login/index.html') Logout
+          ul.nav.navbar-nav.hidden
+            li
+              a(href='#', data-action='growl') Growl
+            li
+              a(href='/logout') Logout
+    #msgModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='msgModal', aria-hidden='true')
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+            button.btn.btn-sm.btn-primary.pull-right.app-new-msg.js-newMsg(type='button') New message
+            h4.modal-title Messages
+          .modal-body.p-a-0.js-modalBody
+            .modal-body-scroller
+              .media-list.media-list-users.list-group.js-msgGroup
+                a.list-group-item(href='#')
+                  .media
+                    span.media-left
+                      img.img-circle.media-object(src='assets/img/avatar-fat.jpg')
+                    .media-body
+                      strong Jacob Thornton
+                      |  and
+                      strong 1 other
+                      .media-body-secondary
+                        | Aenean eu leo quam. Pellentesque ornare sem lacinia quam …
+                a.list-group-item(href='#')
+                  .media
+                    span.media-left
+                      img.img-circle.media-object(src='assets/img/avatar-mdo.png')
+                    .media-body
+                      strong Mark Otto
+                      |  and
+                      strong 3 others
+                      .media-body-secondary
+                        | Brunch sustainable placeat vegan bicycle rights yeah…
+                a.list-group-item(href='#')
+                  .media
+                    span.media-left
+                      img.img-circle.media-object(src='assets/img/avatar-dhg.png')
+                    .media-body
+                      strong Dave Gamache
+                      .media-body-secondary
+                        | Brunch sustainable placeat vegan bicycle rights yeah…
+                a.list-group-item(href='#')
+                  .media
+                    span.media-left
+                      img.img-circle.media-object(src='assets/img/avatar-fat.jpg')
+                    .media-body
+                      strong Jacob Thornton
+                      |  and
+                      strong 1 other
+                      .media-body-secondary
+                        | Aenean eu leo quam. Pellentesque ornare sem lacinia quam …
+                a.list-group-item(href='#')
+                  .media
+                    span.media-left
+                      img.img-circle.media-object(src='assets/img/avatar-mdo.png')
+                    .media-body
+                      strong Mark Otto
+                      |  and
+                      strong 3 others
+                      .media-body-secondary
+                        | Brunch sustainable placeat vegan bicycle rights yeah…
+                a.list-group-item(href='#')
+                  .media
+                    span.media-left
+                      img.img-circle.media-object(src='assets/img/avatar-dhg.png')
+                    .media-body
+                      strong Dave Gamache
+                      .media-body-secondary
+                        | Brunch sustainable placeat vegan bicycle rights yeah…
+                a.list-group-item(href='#')
+                  .media
+                    span.media-left
+                      img.img-circle.media-object(src='assets/img/avatar-fat.jpg')
+                    .media-body
+                      strong Jacob Thornton
+                      |  and
+                      strong 1 other
+                      .media-body-secondary
+                        | Aenean eu leo quam. Pellentesque ornare sem lacinia quam …
+                a.list-group-item(href='#')
+                  .media
+                    span.media-left
+                      img.img-circle.media-object(src='assets/img/avatar-mdo.png')
+                    .media-body
+                      strong Mark Otto
+                      |  and
+                      strong 3 others
+                      .media-body-secondary
+                        | Brunch sustainable placeat vegan bicycle rights yeah…
+                a.list-group-item(href='#')
+                  .media
+                    span.media-left
+                      img.img-circle.media-object(src='assets/img/avatar-dhg.png')
+                    .media-body
+                      strong Dave Gamache
+                      .media-body-secondary
+                        | Brunch sustainable placeat vegan bicycle rights yeah…
+              .hide.m-a.js-conversation
+                ul.media-list.media-list-conversation
+                  li.media.media-current-user.m-b-md
+                    .media-body
+                      .media-body-text
+                        | Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue.
+                        | Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo risus, porta ac consectetur
+                        | ac, vestibulum at eros. Sed posuere consectetur est at lobortis.
+                      .media-footer
+                        small.text-muted
+                          a(href='#') Dave Gamache
+                          |  at 4:20PM
+                    a.media-right(href='#')
+                      img.img-circle.media-object(src='assets/img/avatar-dhg.png')
+                  li.media.m-b-md
+                    a.media-left(href='#')
+                      img.img-circle.media-object(src='assets/img/avatar-fat.jpg')
+                    .media-body
+                      .media-body-text
+                        | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
+                        | eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+                      .media-body-text
+                        | Vestibulum id ligula porta felis euismod semper. Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus
+                        | ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent
+                        | commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare
+                        | vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                      .media-body-text
+                        | Cras mattis consectetur purus sit amet fermentum. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere
+                        | velit aliquet. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget
+                        | metus.
+                      .media-footer
+                        small.text-muted
+                          a(href='#') Fat
+                          |  at 4:28PM
+                  li.media.m-b-md
+                    a.media-left(href='#')
+                      img.img-circle.media-object(src='assets/img/avatar-mdo.png')
+                    .media-body
+                      .media-body-text
+                        | Etiam porta sem malesuada magna mollis euismod. Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus
+                        | magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod. Morbi leo
+                        | risus, porta ac consectetur ac, vestibulum at eros. Aenean lacinia bibendum nulla sed consectetur.
+                      .media-body-text
+                        | Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est
+                        | non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                      .media-footer
+                        small.text-muted
+                          a(href='#') Mark Otto
+                          |  at 4:20PM
+                  li.media.media-current-user.m-b-md
+                    .media-body
+                      .media-body-text
+                        | Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue.
+                        | Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo risus, porta ac consectetur
+                        | ac, vestibulum at eros. Sed posuere consectetur est at lobortis.
+                      .media-footer
+                        small.text-muted
+                          a(href='#') Dave Gamache
+                          |  at 4:20PM
+                    a.media-right(href='#')
+                      img.img-circle.media-object(src='assets/img/avatar-dhg.png')
+                  li.media.m-b-md
+                    a.media-left(href='#')
+                      img.img-circle.media-object(src='assets/img/avatar-fat.jpg')
+                    .media-body
+                      .media-body-text
+                        | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
+                        | eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+                      .media-body-text
+                        | Vestibulum id ligula porta felis euismod semper. Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus
+                        | ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent
+                        | commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare
+                        | vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                      .media-body-text
+                        | Cras mattis consectetur purus sit amet fermentum. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere
+                        | velit aliquet. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget
+                        | metus.
+                      .media-footer
+                        small.text-muted
+                          a(href='#') Fat
+                          |  at 4:28PM
+                  li.media.m-b
+                    a.media-left(href='#')
+                      img.img-circle.media-object(src='assets/img/avatar-mdo.png')
+                    .media-body
+                      .media-body-text
+                        | Etiam porta sem malesuada magna mollis euismod. Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus
+                        | magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod. Morbi leo
+                        | risus, porta ac consectetur ac, vestibulum at eros. Aenean lacinia bibendum nulla sed consectetur.
+                      .media-body-text
+                        | Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est
+                        | non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                      .media-footer
+                        small.text-muted
+                          a(href='#') Mark Otto
+                          |  at 4:20PM
+    #userModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='userModal', aria-hidden='true')
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+            h4.modal-title Users
+          .modal-body.p-a-0
+            .modal-body-scroller
+              ul.media-list.media-list-users.list-group
+                li.list-group-item
+                  .media
+                    a.media-left(href='#')
+                      img.media-object.img-circle(src='assets/img/avatar-fat.jpg')
+                    .media-body
+                      button.btn.btn-default.btn-sm.pull-right
+                        span.glyphicon.glyphicon-user
+                        |  Follow
+                      strong Jacob Thornton
+                      p @fat - San Francisco
+                li.list-group-item
+                  .media
+                    a.media-left(href='#')
+                      img.media-object.img-circle(src='assets/img/avatar-dhg.png')
+                    .media-body
+                      button.btn.btn-default.btn-sm.pull-right
+                        span.glyphicon.glyphicon-user
+                        |  Follow
+                      strong Dave Gamache
+                      p @dhg - Palo Alto
+                li.list-group-item
+                  .media
+                    a.media-left(href='#')
+                      img.media-object.img-circle(src='assets/img/avatar-mdo.png')
+                    .media-body
+                      button.btn.btn-default.btn-sm.pull-right
+                        span.glyphicon.glyphicon-user
+                        |  Follow
+                      strong Mark Otto
+                      p @mdo - San Francisco
+    .container.p-t-md
+      .row
+        .col-md-3
+          .panel.panel-default.panel-profile.m-b-md
+            .panel-heading(style='background-image: url(assets/img/iceland.jpg);')
+            .panel-body.text-center
+              a(href='profile/index.html')
+                img.panel-profile-img(src='assets/img/avatar-dhg.png')
+              h5.panel-title
+                a.text-inherit(href='profile/index.html') Dave Gamache
+              p.m-b-md I wish i was a little bit taller, wish i was a baller, wish i had a girl… also.
+              ul.panel-menu
+                li.panel-menu-item
+                  a.text-inherit(href='#userModal', data-toggle='modal')
+                    | Friends
+                    h5.m-y-0 12M
+                li.panel-menu-item
+                  a.text-inherit(href='#userModal', data-toggle='modal')
+                    | Enemies
+                    h5.m-y-0 1
+          .panel.panel-default.visible-md-block.visible-lg-block
+            .panel-body
+              h5.m-t-0
+                | About
+                small
+                  | ·
+                  a(href='#') Edit
+              ul.list-unstyled.list-spaced
+                li
+                  span.text-muted.icon.icon-calendar.m-r
+                  | Went to
+                  a(href='#') Oh, Canada
+                li
+                  span.text-muted.icon.icon-users.m-r
+                  | Became friends with
+                  a(href='#') Obama
+                li
+                  span.text-muted.icon.icon-github.m-r
+                  | Worked at
+                  a(href='#') Github
+                li
+                  span.text-muted.icon.icon-home.m-r
+                  | Lives in
+                  a(href='#') San Francisco, CA
+                li
+                  span.text-muted.icon.icon-location-pin.m-r
+                  | From
+                  a(href='#') Seattle, WA
+          .panel.panel-default.visible-md-block.visible-lg-block
+            .panel-body
+              h5.m-t-0
+                | Photos
+                small
+                  | ·
+                  a(href='#') Edit
+              div(data-grid='images', data-target-height='150')
+                div
+                  img(data-width='640', data-height='640', data-action='zoom', src='assets/img/instagram_5.jpg')
+                div
+                  img(data-width='640', data-height='640', data-action='zoom', src='assets/img/instagram_6.jpg')
+                div
+                  img(data-width='640', data-height='640', data-action='zoom', src='assets/img/instagram_7.jpg')
+                div
+                  img(data-width='640', data-height='640', data-action='zoom', src='assets/img/instagram_8.jpg')
+                div
+                  img(data-width='640', data-height='640', data-action='zoom', src='assets/img/instagram_9.jpg')
+                div
+                  img(data-width='640', data-height='640', data-action='zoom', src='assets/img/instagram_10.jpg')
+        .col-md-6
+          ul.list-group.media-list.media-list-stream
+            li.media.list-group-item.p-a
+              .input-group
+                input.form-control(type='text', placeholder='Message')
+                .input-group-btn
+                  button.btn.btn-default(type='button')
+                    span.icon.icon-camera
+            li.media.list-group-item.p-a
+              a.media-left(href='#')
+                img.media-object.img-circle(src='assets/img/avatar-dhg.png')
+              .media-body
+                .media-heading
+                  small.pull-right.text-muted 4 min
+                  h5 Dave Gamache
+                p
+                  | Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac
+                  | consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum
+                  | id ligula porta felis euismod semper. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                  | ridiculus mus.
+                .media-body-inline-grid(data-grid='images')
+                  div(style='display: none')
+                    img(data-action='zoom', data-width='1050', data-height='700', src='assets/img/unsplash_1.jpg')
+                  div(style='display: none')
+                    img(data-action='zoom', data-width='640', data-height='640', src='assets/img/instagram_1.jpg')
+                  div(style='display: none')
+                    img(data-action='zoom', data-width='640', data-height='640', src='assets/img/instagram_13.jpg')
+                  div(style='display: none')
+                    img(data-action='zoom', data-width='1048', data-height='700', src='assets/img/unsplash_2.jpg')
+                ul.media-list.m-b
+                  li.media
+                    a.media-left(href='#')
+                      img.media-object.img-circle(src='assets/img/avatar-fat.jpg')
+                    .media-body
+                      strong Jacon Thornton: 
+                      |                     Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                      |                     Donec ullamcorper nulla non metus auctor fringilla. Praesent commodo cursus magna, vel scelerisque nisl
+                      |                     consectetur et. Sed posuere consectetur est at lobortis.
+                  li.media
+                    a.media-left(href='#')
+                      img.media-object.img-circle(src='assets/img/avatar-mdo.png')
+                    .media-body
+                      strong Mark Otto: 
+                      |                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+                      |                     nibh, ut fermentum massa justo sit amet risus.
+            li.media.list-group-item.p-a
+              a.media-left(href='#')
+                img.media-object.img-circle(src='assets/img/avatar-fat.jpg')
+              .media-body
+                .media-body-text
+                  .media-heading
+                    small.pull-right.text-muted 12 min
+                    h5 Jacob Thornton
+                  p
+                    | Donec id elit non mi porta gravida at eget metus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cum
+                    | sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi leo risus, porta
+                    | ac consectetur ac, vestibulum at eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            li.media.list-group-item.p-a
+              a.media-left(href='#')
+                img.media-object.img-circle(src='assets/img/avatar-mdo.png')
+              .media-body
+                .media-heading
+                  small.pull-right.text-muted 34 min
+                  h5 Mark Otto
+                p
+                  | Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam.
+                  | Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod.
+                  | Donec sed odio dui.
+                .media-body-inline-grid(data-grid='images')
+                  img(style='display: none', data-width='640', data-height='640', data-action='zoom', src='assets/img/instagram_3.jpg')
+                ul.media-list
+                  li.media
+                    a.media-left(href='#')
+                      img.media-object.img-circle(src='assets/img/avatar-dhg.png')
+                    .media-body
+                      strong Dave Gamache: 
+                      |                     Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                      |                     Donec ullamcorper nulla non metus auctor fringilla. Praesent commodo cursus magna, vel scelerisque nisl
+                      |                     consectetur et. Sed posuere consectetur est at lobortis.
+        .col-md-3
+          .alert.alert-warning.alert-dismissible.hidden-xs(role='alert')
+            button.close(type='button', data-dismiss='alert', aria-label='Close')
+              span(aria-hidden='true') ×
+            a.alert-link(href='profile/index.html') Visit your profile!
+            |  Check your self, you aren't looking too good.
+          .panel.panel-default.m-b-md.hidden-xs
+            .panel-body
+              h5.m-t-0 Sponsored
+              div(data-grid='images', data-target-height='150')
+                img.media-object(data-width='640', data-height='640', data-action='zoom', src='assets/img/instagram_2.jpg')
+              p
+                strong It might be time to visit Iceland.
+                |  Iceland is so chill, and everything looks cool here. Also, we heard
+                |               the people are pretty nice. What are you waiting for?
+              button.btn.btn-primary-outline.btn-sm Buy a ticket
+          .panel.panel-default.m-b-md.hidden-xs
+            .panel-body
+              h5.m-t-0
+                | Likes
+                small
+                  | ·
+                  a(href='#') View All
+              ul.media-list.media-list-stream
+                li.media.m-b
+                  a.media-left(href='#')
+                    img.media-object.img-circle(src='assets/img/avatar-fat.jpg')
+                  .media-body
+                    strong Jacob Thornton
+                    |  @fat
+                    .media-body-actions
+                      button.btn.btn-primary-outline.btn-sm
+                        span.icon.icon-add-user
+                        |  Follow
+                li.media
+                  a.media-left(href='#')
+                    img.media-object.img-circle(src='assets/img/avatar-mdo.png')
+                  .media-body
+                    strong Mark Otto
+                    |  @mdo
+                    .media-body-actions
+                      button.btn.btn-primary-outline.btn-sm
+                        span.icon.icon-add-user
+                        |  Follow
+            .panel-footer
+              | Dave really likes these nerds, no one knows why though.
+          .panel.panel-default.panel-link-list
+            .panel-body
+              | © 2015 Bootstrap
+              a(href='#') About
+              a(href='#') Help
+              a(href='#') Terms
+              a(href='#') Privacy
+              a(href='#') Cookies
+              a(href='#') Ads 
+              a(href='#') info
+              a(href='#') Brand
+              a(href='#') Blog
+              a(href='#') Status
+              a(href='#') Apps
+              a(href='#') Jobs
+              a(href='#') Advertise
+    script(src='assets/js/jquery.min.js')
+    script(src='assets/js/chart.js')
+    script(src='assets/js/toolkit.js')
+    script(src='assets/js/application.js')
+    script.
+      // execute/clear BS loaders for docs
+      $(function () {
+      if (window.BS && window.BS.loader && window.BS.loader.length) {
+      while (BS.loader.length) { (BS.loader.pop())() }
+      }
+      })

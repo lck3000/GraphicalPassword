@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+  section.con
+    .overlay
+      .container
+        .row.justify-content-center
+          .col-md-8.p-3.mt-5
+            h2.text-center.display-3 Fiis Bank
+        .row.h-50.justify-content-center
+          .col-md-8.main-con.p-3.justify-content-center
+            form.form-horizontal(method='POST', action='/login')
+              .form-group.row.justify-content-center
+                .col-md-10.mb-5
+                  .wrapper
+                    input#username.in(type='text', name='username', placeholder='Username')
+                    span.underline
+              .form-group.row
+                .col-md-10.offset-md-1.mb-5
+                  .wrapper
+                    input#pw.in(type='password', name='password', placeholder='Password')
+                    span.underline
+              .form-group.row.justify-content-center
+                .col-md-6
+                  button.btn.btn-primary.btn-block(type='submit') Entrar
+              .form-group.row.justify-content-center
+                .col-md-6
+                  a.btn.btn-primary.btn-block(href='/register') Registrar
+            p.text-center.t By: Victor Cueva

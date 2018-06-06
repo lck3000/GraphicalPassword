@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+  section.con
+    .overlay
+      .container
+        .row.justify-content-center
+          .col-md-8.p-3.mt-5
+            h2.text-center.display-3 Century
+        .row.h-50.justify-content-center
+          canvas(id='canvas', width=500, height=400)
+          .col-md-8.main-con.p-3.justify-content-center
+            .row.justify-content-center
+                .col-md-10.mb-5
+                  .wrapper
+                    button.btn.btn-primary.btn-block(id='btnClean') Limpiar
+            .row.justify-content-center
+                .col-md-10.mb-5
+                  .wrapper
+                    input(type='hidden', id='saveurl', value='/register/step2')
+                    button.btn.btn-primary.btn-block(id='btnSave') Guardar
+            p.text-center.t Victor Cueva
+
+block scripts
+  script(src="/javascripts/blonder.js")
