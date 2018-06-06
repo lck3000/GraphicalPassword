@@ -42,17 +42,37 @@ router.post('/step2', (req, res, next) => {
 		return res.redirect('/register');
 	}
 
-	let points = req.body.points;
+	let m = req.query.m;
+	if (m == 'blonder') {
+		let points = req.body.points;
+		if (!points || points.length < 5) {
+			return res.status(400).send('Se necesita al menos 5 puntos.');
+		}
 
-	if (!points || points.length < 5) {
-		return res.status(400).send('Se necesita al menos 5 puntos.');
+		registerModel.setBlondeAuthentication(req.session.uid, points)
+		.then(result => {
+			delete req.session.uid;
+			res.send('ok');
+		}).catch(next);
+	} else if (m == 'pps') {
+		let points = req.body.points;
+		let image = req.body.image;
+
+		if (!image) {
+			return res.status(400).send('No se ha seleccionado imagen.');
+		}
+		if (!points || points.length < 5) {
+			return res.status(400).send('Se necesita al menos 5 puntos.');
+		}
+
+		registerModel.setPssAuthentication(req.session.uid, points, image)
+		.then(result => {
+			delete req.session.uid;
+			res.send('ok');
+		}).catch(next);
+	} else {
+		res.status(400).send('Error con el metodo');
 	}
-
-	registerModel.setBlondeAuthentication(req.session.uid, points)
-	.then(result => {
-		delete req.session.uid;
-		res.send('ok');
-	}).catch(next);
 });
 
 module.exports = router;

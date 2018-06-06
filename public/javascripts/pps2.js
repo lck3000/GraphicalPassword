@@ -4,14 +4,12 @@ $(document).ready(() => {
 	let canvas = document.getElementById('canvas');
 	let context = canvas.getContext("2d");
 
-	let img = new Image();
-	img.src = "/images/horse.jpg";
-
-	function drawHorse() {
+	function drawImage() {
+		let img = document.getElementById('imageb64');
 		context.drawImage(img, 0, 0, 500, 400);
 	}
-	img.onload = drawHorse;
 
+	drawImage();
 	canvas.addEventListener('click', (event) => {
 		let totalOffsetX = 0;
     let totalOffsetY = 0;
@@ -34,7 +32,7 @@ $(document).ready(() => {
 	}, false);
 
 	$('#btnClean').on('click', () => {
-		drawHorse();
+		drawImage();
 		points = [];
 	});
 
@@ -44,7 +42,7 @@ $(document).ready(() => {
 		}
 
 		let data = {
-			points: points
+			points: points,
 		};
 
 		$.ajax({type: "POST",

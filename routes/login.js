@@ -52,9 +52,16 @@ router.get('/step2', (req, res, next) => {
 	let m = req.query.m;
 	if (m == 'blonder') {
 		return res.render('login/step2-blonder');
+	} else if (m == 'pps') {
+		UserModel.findById(req.session.login.uid)
+		.then(user => {
+			return res.render('login/step2-pps', {
+				imgb64: user.credentials.data.image
+			});
+		});
+	} else {
+		res.redirect('login');
 	}
-
-	res.render('login');
 });
 
 router.post('/step2', (req, res, next) => {
@@ -75,7 +82,20 @@ router.post('/step2', (req, res, next) => {
 				delete req.session.login;
 				req.session.user = result._id;
 				res.send('ok');
-			})
+			});
+	} else if(m == 'pps') {
+		let points = req.body.points;
+
+		UserModel.loginPps(req.session.login.uid, points)
+			.then(result => {
+				if (!result) {
+					return res.status(401).send('Clave incorrecta');
+				}
+
+				delete req.session.login;
+				req.session.user = result._id;
+				res.send('ok');
+			});
 	} else {
 		return res.status(401).send('Error');
 	}

@@ -3,14 +3,24 @@ let points = [];
 $(document).ready(() => {
 	let canvas = document.getElementById('canvas');
 	let context = canvas.getContext("2d");
+	let imgFile;
 
-	let img = new Image();
-	img.src = "/images/horse.jpg";
+	function drawImage() {
+		if (!imgFile) {
+			return;
+		}
 
-	function drawHorse() {
-		context.drawImage(img, 0, 0, 500, 400);
+		let img = new Image();
+		img.src = URL.createObjectURL(imgFile);
+		img.onload = function() {
+			context.drawImage(img, 0, 0, 500, 400);
+		}
 	}
-	img.onload = drawHorse;
+
+	$('#picImage').on('change', (e) => {
+		imgFile = e.target.files[0];
+		drawImage();
+	});
 
 	canvas.addEventListener('click', (event) => {
 		let totalOffsetX = 0;
@@ -34,27 +44,45 @@ $(document).ready(() => {
 	}, false);
 
 	$('#btnClean').on('click', () => {
-		drawHorse();
+		drawImage();
 		points = [];
 	});
 
+	function getBase64(file) {
+		return new Promise((resolve, reject) => {
+			const reader = new FileReader();
+			reader.readAsDataURL(file);
+			reader.onload = () => resolve(reader.result);
+			reader.onerror = error => reject(error);
+		});
+	}
+
 	$('#btnSave').on('click', () => {
+		if (!imgFile) {
+			return alert('Seleccione una imagen');
+		}
+
 		if (points.length < 5) {
 			return alert('Seleccione por lo menos 5 puntos en la imagen.');
 		}
 
 		let data = {
-			points: points
+			points: points,
 		};
 
-		$.ajax({type: "POST",
-			url: window.location.href,
-			data: JSON.stringify(data),
-			contentType: "application/json; charset=utf-8"
-		}).then(ok => {
-			window.location.href = '/';
-		}, err => {
-			alert(err.responseText);
+		getBase64(imgFile)
+		.then(b64image => {
+			data.image = b64image;
+
+			$.ajax({type: "POST",
+				url: window.location.href,
+				data: JSON.stringify(data),
+				contentType: "application/json; charset=utf-8"
+			}).then(ok => {
+				window.location.href = '/';
+			}, err => {
+				alert(err.responseText);
+			});
 		});
 	});
 });

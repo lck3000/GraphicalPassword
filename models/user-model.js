@@ -25,6 +25,23 @@ async function findByUsername(username) {
 	return UserModel.findOne({username: username}).exec();
 }
 
+async function findById(userid) {
+	return UserModel.findById(userid).exec();
+}
+
+
+function computeError(p1, p2) {
+	let error = 0;
+	p1.forEach((p, i) => {
+		let dx = p.x - p2[i].x;
+		let dy = p.y - p2[i].y;
+		error += Math.sqrt(dx*dx + dy*dy);
+	});
+
+	error /= p1.length;
+	return error;
+}
+
 async function loginBlonder(userid, points) {
 	let user = await UserModel.findById(userid).exec();
 	let credentials = user.credentials;
@@ -37,15 +54,37 @@ async function loginBlonder(userid, points) {
 		return false;
 	}
 
-	let error = 0;
-	credentials.data.forEach((p, i) => {
-		let dx = p.x - points[i].x;
-		let dy = p.y - points[i].y;
+	let error = computeError(credentials.data, points);
 
-		error += Math.sqrt(dx*dx + dy*dy);
-	});
+	console.log(error);
+	if (error > 5) {
+		return false;
+	}
 
-	error /= points.length;
+	return user;
+}
+
+async function setPssAuthentication(userid, points, image) {
+	let xd = await UserModel.updateOne({_id: userid}, {$set: {
+		credentials: {mtype: 'pps', data: {points: points, image: image}}, 
+		state: 'enabled'
+	}}).exec();
+	return xd;
+}
+
+async function loginPps(userid, points) {
+	let user = await UserModel.findById(userid).exec();
+	let credentials = user.credentials;
+
+	if (credentials.mtype != 'pps') {
+		return false;
+	}
+
+	if (credentials.data.points.length != points.length) {
+		return false;
+	}
+
+	let error = computeError(credentials.data.points, points);
 
 	console.log(error);
 	if (error > 5) {
@@ -59,5 +98,8 @@ module.exports = {
 	registrar: registrar,
 	setBlondeAuthentication: setBlondeAuthentication,
 	findByUsername: findByUsername,
-	loginBlonder: loginBlonder
+	loginBlonder: loginBlonder,
+	setPssAuthentication: setPssAuthentication,
+	findById: findById,
+	loginPps: loginPps
 };
