@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const host = process.env.MONGO_HOST || '127.0.0.1';
-const port = process.env.MONGO_PORT || 27017;
-const db = process.env.MONGO_DB || 'seguridad';
+const host = '127.0.0.1';
+const port = 27017;
+const db = 'seguridad';
 
 const dbConn = mongoose.createConnection(`mongodb://${host}:${port}/${db}`,{useNewUrlParser: true}, (err, xd) => {
 	if (!err) {
